@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { TWEEN } from 'three/addons/libs/tween.module.min.js'; // For animation
+import TWEEN from 'three/addons/libs/tween.module.min.js';
 
 // --- Configuration ---
 const CUBE_COLORS = {
