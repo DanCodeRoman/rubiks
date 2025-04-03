@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rubik's Cube</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: sans-serif; background-color: #222; color: #eee; }
+        #container { width: 100vw; height: 100vh; display: block; }
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Spacing between elements */
+            align-items: flex-start; /* Align items to the start */
+         }
+        #controls button {
+            padding: 8px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+            background-color: #4CAF50;
+            color: white;
+            min-width: 80px; /* Ensure buttons have similar width */
+            text-align: center;
+        }
+         #controls button:hover {
+            background-color: #45a049;
+        }
+         #controls label {
+             margin-right: 5px;
+             display: block; /* Make label take full width */
+             margin-bottom: 5px; /* Space below label */
+         }
+        #controls input[type="number"] {
+            padding: 5px;
+            width: 50px; /* Fixed width for number input */
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+        #controls div { /* Container for label and input */
+             display: flex;
+             flex-direction: column; /* Stack label above input */
+             align-items: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="controls">
+        <div>
+             <label for="cubeSize">Size (NxN):</label>
+             <input type="number" id="cubeSize" value="3" min="2" max="10">
+        </div>
+        <button id="scrambleBtn">Scramble</button>
+        <button id="solveBtn">Solve</button>
+         <p style="font-size: 0.8em; margin-top: 10px;">Drag mouse to rotate cube.<br>Use mouse wheel to zoom.</p>
+    </div>
+
+    <!-- Include Three.js Library -->
+    <!-- Option 1: Use a CDN -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <!-- Option 2: Download and link locally (if preferred) -->
+    <!-- <script type="module" src="js/three.module.js"></script> -->
+    <!-- <script type="module" src="js/OrbitControls.js"></script> -->
+
+    <script type="module" src="cube.js"></script>
+</body>
+</html>
